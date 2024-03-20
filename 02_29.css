@@ -42,15 +42,14 @@ td:last-of-type {
 }
 
 .Client_Table {
+    
     border-collapse: collapse;
     border: solid 2px black;
     text-align: center;
-    margin-left: -3px;
-
 }
 
 .Supervisor_Table{
-    margin-left: 1300px;
+    margin-left: 1000px;
     margin-top: -185px;
     border-collapse: collapse;
     border: solid 2px black;
