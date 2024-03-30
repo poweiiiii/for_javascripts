@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Numbers</title>
+    <script>
+        function Clear(){
+            window.location.reload();
+        }
+        function IsPrime(num){
+            for (let i = 2 ; i < num ; i++ ){
+                if (num % i === 0 ){
+                    return false;
+                }
+            }
+            return true;    
+        }
+
+        function Prime_function() {
+            var number = document.getElementById("input_number").value;
+            if (number < 2) {
+            window.alert("請重新輸入數字及大於2以上");
+            }     
+            
+            var prime_array = [];
+            if(number >= 2){
+                for (var i= 2 ; i <= number ; i++){
+                    if (IsPrime(i)){
+                        prime_array.push(i);
+                        document.getElementById("display_all_numbers").innerHTML +=   '<p  style="color: red; font-weight : bold ">' + i  ;
+                        }
+                    else{
+                        document.getElementById("display_all_numbers").innerHTML +=  '<p  style="color: black;">' + i ;
+                    }
+                  
+                }
+            }
+            document.getElementById("count_prime").innerHTML += prime_array.length ;
+
+        }
+    </script>
+   
+</head>
+<body>
+    
+    <h1>Find the Prime</h1>
+    <input type="number" placeholder = '請輸入數字' id="input_number"></input>
+    <button id="result_button" type="button" onclick="Prime_function()">OK</button>
+    <button type="button" onclick="Clear()">clear</button>
+    <p id="count_prime">Count of primes:</p>
+    <p id = "display_all_numbers">All of numbers:</p>
+</body>
+</html>
