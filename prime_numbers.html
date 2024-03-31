@@ -1,3 +1,4 @@
+<!-- 資工三甲 4B0G0175   曾柏崴 -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,10 +8,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Numbers</title>
+    <style>
+        /* If the number is prime ,change the color  */
+        .prime_numbers{
+            border : 2px solid red;
+            padding: 2px;
+        }
+    </style>
     <script>
+        // For clear the numbers , if user wanna input new number to calculate
         function Clear(){
             window.location.reload();
         }
+        // For determine is or isn't prime
         function IsPrime(num){
             for (let i = 2 ; i < num ; i++ ){
                 if (num % i === 0 ){
@@ -20,23 +30,39 @@
             return true;    
         }
 
+
         function Prime_function() {
             var number = document.getElementById("input_number").value;
             if (number < 2) {
             window.alert("請重新輸入數字及大於2以上");
             }     
             
+            // The array is to store the primes , because we want to show the count of primes
             var prime_array = [];
             if(number >= 2){
                 for (var i= 2 ; i <= number ; i++){
                     if (IsPrime(i)){
+                        //Add primes to array 
                         prime_array.push(i);
-                        document.getElementById("display_all_numbers").innerHTML +=   '<p  style="color: red; font-weight : bold ">' + i  ;
+                        
+                        
+                        
+                        document.getElementById("display_all_numbers").innerHTML +=   '<br>' + '<span class="prime_numbers" style="color: red;font-weight : bold ;">' + i + '<br>' ;
+                        for (var j = 2; j <= number; j++) {
+                        var multiple = i * j;
+                        if (i > number) {
+                            break;
                         }
+                        var color = '#' + Math.floor(Math.random() * 16777215).toString(16); // 生成随机颜色
+                 
+                        document.getElementById("display_all_numbers").innerHTML  += '<span style="color: ' + color + ';">' + multiple + ' </span>';
+                    }
+
+                       
+                            }
                     else{
                         document.getElementById("display_all_numbers").innerHTML +=  '<p  style="color: black;">' + i ;
                     }
-                  
                 }
             }
             document.getElementById("count_prime").innerHTML += prime_array.length ;
