@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+    <style>
+        .Create_room_button{
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 10px;
+        }
+        .Code_name{
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
+   
+    <script src="order.js">
+     
+    </script>
 </head>
 <body>
-    
+    <script>
+        var title = Create_Web_Title('Family Order !');
+        document.body.appendChild(title);
+        Generate_room_code();
+    </script>
+    <button id = 'generate_code_button' class="Create_room_button" type="button" style="border-radius:3%; width:150px; height: 50px;" onclick="Generate_room_code()">Create a code!</button>
+    <button  id = 'restrat_button' type="button" disabled = 'true'>Regenerate!</button>
+    <p id="Generate_Code" class="Code_name"></p>
 </body>
 </html>

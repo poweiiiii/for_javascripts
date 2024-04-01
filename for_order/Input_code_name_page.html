@@ -22,32 +22,19 @@
 
         }
     </style>
-
+<script src="order.js"></script>
     <script>
-        
-        function Display_code_name(){
-            var code_name = document.getElementById('code_name_input').value;
-            var button = document.getElementById('code_name_ok_button');
-            var code_name_length = document.getElementById('display_code_name');
-            if (code_name == 0 ){
-                window.alert('請重新輸入!')
-            }
-            document.getElementById('display_code_name').innerHTML += '<br>' + code_name;
-            if (code_name_length.textContent.trim().length > 0) {
-        button.disabled = true;
-        }
-        }
-   
-     
-        function Reinput(){
-            window.location.reload();
-
-        }
+        var heading = createCommonHeading("This is Page 1");
+        document.body.appendChild(heading);
+       
     </script>
 </head>
 <body>
+    <script>
+        var title = Create_Web_Title('Family Order !');
+        document.body.appendChild(title);
 
-    <h1 id="Page1_Title" class="Title">Teams Order System</h1>
+    </script>
     <input class="input_field" id="code_name_input" type="text" placeholder="Please enter the code name" maxlength="10" size="35" autocomplete = 'off'></input>
     <button class="input_field"  id = 'code_name_ok_button' type="button" style="height: 35px;;width: 35px; border-radius: 20%;" onclick="Display_code_name()">OK</button>
     <button class="input_field" type="button" onclick="Reinput()" style="border-radius: 10%;">Clear</button>
