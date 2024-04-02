@@ -63,8 +63,7 @@ function Remove_Code_Array(){
     if (Code_name_array.length > 0) {
         Code_name_array.pop(); 
         localStorage.setItem('Code_name', JSON.stringify(Code_name_array));
-        Display_Room_Name();    
-    }
+        Display_Room_Name();        }
 }
 
 function Change_to_room(){
