@@ -20,18 +20,18 @@
     </style>
    
     <script src="order.js">
-     
+        
     </script>
 </head>
 <body>
     <script>
         var title = Create_Web_Title('Family Order !');
         document.body.appendChild(title);
-        Generate_room_code();
-    </script>
+        console.log(Code_name_array);
+        </script>
     <button id = 'generate_code_button' class="Create_room_button" type="button" 
     style="border-radius:3%; width:150px; height: 50px;" onclick="Generate_code_room_Button()">Create a code!</button>
-    <button class="Create_room_button" id = 'restrat_button' type="button" disabled = 'true' onclick="Restart_Button()">Regenerate!</button>
+    <button class="Create_room_button" id = 'restrat_button' type="button" disabled = 'true' onclick="Regenerate_Button()">Regenerate!</button>
     <p id="Generate_Code" class="Code_name"></p>
 </body>
 </html>

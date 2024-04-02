@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room</title>
+    <style>
+        .code_name{
+            font-size: large;
+            color: aqua;
+        }
+    </style>
+   
 </head>
 
 <script src="order.js"></script>
 <body>
-    <p id = 'display_code_name'></p>
+    <script>
+    function Display_Room_Name(){
+    var Code_name = localStorage.getItem('Code_name');  
+    document.getElementById('display_code_name').innerHTML += Code_name;
+}
+    </script>
+    
+    <p id = 'display_code_name' class="code_name">code name:</p>
+    <button type="button" onclick="Display_Room_Name()">ok</button>
 </body>
 </html>
