@@ -42,34 +42,6 @@ function Generate_code_room_Button(){
   Change_to_room();
 
 }
-function Regenerate_Button(){
-    Remove_Code_Array()
-    var Code_name = document.getElementById('Generate_Code');
-    Code_name.textContent = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123466789';
-    Code_name = '';
-    var charactersLength = characters.length;
-    var Length = 10;
-    for (i = 0 ; i < Length ; i++){
-        Code_name += characters.charAt(Math.floor(Math.random() * charactersLength));
-
-    }
-    Code_name_array.push(Code_name);
-    localStorage.setItem('Code_name' , JSON.stringify(Code_name_array));
-    document.getElementById('Generate_Code').innerHTML += Code_name;
-}
-
-function Remove_Code_Array(){
-    if (Code_name_array.length > 0) {
-        Code_name_array.pop(); 
-        localStorage.setItem('Code_name', JSON.stringify(Code_name_array));
-        Display_Room_Name();        }
-}
-
-function Change_to_room(){
-    var Button = document.getElementById('generate_code_button');
-    Button.textContent = 'Create a room!';
-}
 function Generate_room_code(){
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123466789';
     Code_name = '';
@@ -85,6 +57,37 @@ function Generate_room_code(){
     localStorage.setItem('Code_name' , JSON.stringify(Code_name_array));
 
     localStorage.setItem('Code_name' , Code_name);
+}
+
+function Regenerate_Button(){
+    Remove_Code_Array()
+    var Code_name = document.getElementById('Generate_Code');
+    Code_name.textContent = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123466789';
+    Code_name = '';
+    var charactersLength = characters.length;
+    var Length = 10;
+    for (i = 0 ; i < Length ; i++){
+        Code_name += characters.charAt(Math.floor(Math.random() * charactersLength));
+
+    }
+    Code_name_array.push(Code_name);
+    localStorage.setItem('Code_name' , JSON.stringify(Code_name_array));
+
+    localStorage.setItem('Code_name' , Code_name);
+        document.getElementById('Generate_Code').innerHTML += Code_name;
+}
+
+function Remove_Code_Array(){
+    if (Code_name_array.length > 0) {
+        Code_name_array.pop(); 
+        localStorage.setItem('Code_name', JSON.stringify(Code_name_array));
+        Display_Room_Name();        }
+}
+
+function Change_to_room(){
+    var Button = document.getElementById('generate_code_button');
+    Button.textContent = 'Create a room!';
 }
 
 //Room scripts
