@@ -6,8 +6,8 @@
     <title>Room</title>
     <style>
         .code_name{
-            font-size: large;
-            color: aqua;
+            font-size: 50px;
+            text-align: center;
         }
     </style>
    
@@ -16,13 +16,36 @@
 <script src="order.js"></script>
 <body>
     <script>
+
     function Display_Room_Name(){
     var Code_name = localStorage.getItem('Code_name');  
     document.getElementById('display_code_name').innerHTML += Code_name;
 }
+    document.addEventListener('DOMContentLoaded' , function (){
+        Display_Room_Name();
+        
+  
+        var currentPeople = localStorage.getItem('Current_room_people');
+
+        if (!currentPeople) {
+            currentPeople = 0;
+        } else {
+            currentPeople = parseInt(currentPeople);
+        }
+        currentPeople++;
+        localStorage.setItem('Current_room_people', currentPeople);
+
+        document.getElementById('Display_count_people').innerHTML = currentPeople;
+    })
+
+    window.addEventListener('beforeunload' , function(){
+        localStorage.setItem('Current_room_people', 0);
+    })
+
     </script>
     
     <p id = 'display_code_name' class="code_name">code name:</p>
-    <button type="button" onclick="Display_Room_Name()">ok</button>
+    <p id="Display_count_people" class="code_name">People : </p>
+
 </body>
 </html>

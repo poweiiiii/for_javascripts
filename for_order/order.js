@@ -7,6 +7,7 @@ function Display_code_name(){
     }
     document.getElementById('display_code_name').innerHTML += '<br>' + code_name;
     if (code_name_length.textContent.trim().length > 0) {
+        window.open('Room.html', '_blank');
 button.disabled = true;
 }
 }
@@ -37,6 +38,7 @@ function Generate_code_room_Button(){
     if (Button.textContent === 'Create a room!'){
         document.getElementById('Generate_Code').innerHTML += '<br>' + 'Create Successful!';
         window.open('Room.html', '_blank');
+        
         }
 
   Change_to_room();
@@ -73,16 +75,15 @@ function Regenerate_Button(){
     }
     Code_name_array.push(Code_name);
     localStorage.setItem('Code_name' , JSON.stringify(Code_name_array));
-
     localStorage.setItem('Code_name' , Code_name);
-        document.getElementById('Generate_Code').innerHTML += Code_name;
+    document.getElementById('Generate_Code').innerHTML += Code_name;
 }
 
 function Remove_Code_Array(){
     if (Code_name_array.length > 0) {
         Code_name_array.pop(); 
-        localStorage.setItem('Code_name', JSON.stringify(Code_name_array));
-        Display_Room_Name();        }
+        localStorage.setItem('Code_name', JSON.stringify(Code_name_array)); 
+     }
 }
 
 function Change_to_room(){
@@ -91,5 +92,9 @@ function Change_to_room(){
 }
 
 //Room scripts
-function Display_Room_Name(){
-   }
+//全域變數Current room people 
+var Current_room_people = 0 ; 
+function Display_How_Many_People(){ 
+
+}
+
