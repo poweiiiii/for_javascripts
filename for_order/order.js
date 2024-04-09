@@ -1,5 +1,6 @@
 
 function Display_code_name(){
+    Push_room_to_array ();
     var code_name = document.getElementById('code_name_input').value;
     var button = document.getElementById('code_name_ok_button');
     var code_name_length = document.getElementById('display_code_name');
@@ -8,9 +9,10 @@ function Display_code_name(){
     }
     document.getElementById('display_code_name').innerHTML += '<br>' + code_name;
     if (code_name_length.textContent.trim().length > 0) {
-        window.open('Room.html', '_blank');
-button.disabled = true;
-}
+
+        window.open('Room.html', '_blank');}
+
+        button.disabled = true;
 }
 
 
@@ -30,6 +32,15 @@ function Create_Web_Title(text){
 
 var Code_name = '';
 var Code_name_array = [];
+var Room_record_array = [];
+
+function Push_room_to_array (){
+    Room_record_array.push(Code_name_array);
+}
+
+function Console_log_room (){
+    console.log(Room_record_array);
+}
 
 function Generate_code_room_Button(){
     var Button = document.getElementById('generate_code_button')
@@ -39,7 +50,8 @@ function Generate_code_room_Button(){
     if (Button.textContent === 'Create a room!'){
         document.getElementById('Generate_Code').innerHTML += '<br>' + 'Create Successful!';
         window.open('Room.html', '_blank');
-        
+        //只會存到第一次創建 刪除不會跟著刪除
+        Push_room_to_array ();
         }
 
   Change_to_room();
@@ -58,7 +70,6 @@ function Generate_room_code(){
     restrat_button.disabled = false;
     Code_name_array.push(Code_name);
     localStorage.setItem('Code_name' , JSON.stringify(Code_name_array));
-
     localStorage.setItem('Code_name' , Code_name);
 }
 
@@ -99,6 +110,9 @@ function Display_How_Many_People(){
 
 }
 //把創建的room存起來 有在資料裡面才可加入 沒有的話就不加入
+function Room_record(){
+
+}
 
 //創建一個每個都有API 加入後不會重複跑+1
 
