@@ -1,3 +1,4 @@
+
 function Display_code_name(){
     var code_name = document.getElementById('code_name_input').value;
     var button = document.getElementById('code_name_ok_button');
@@ -97,5 +98,9 @@ var Current_room_people = 0 ;
 function Display_How_Many_People(){ 
 
 }
+//把創建的room存起來 有在資料裡面才可加入 沒有的話就不加入
+
 //創建一個每個都有API 加入後不會重複跑+1
+
+
 
