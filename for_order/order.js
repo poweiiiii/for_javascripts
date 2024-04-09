@@ -97,4 +97,5 @@ var Current_room_people = 0 ;
 function Display_How_Many_People(){ 
 
 }
+//創建一個每個都有API 加入後不會重複跑+1
 
