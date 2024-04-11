@@ -1,0 +1,64 @@
+body {
+    font-family: "Silkscreen", sans-serif;
+    background-color: black;
+
+  }
+.title{
+    text-align: center;
+    font-size: 50px;
+    color:  #03fc20;
+}
+
+.Dispaly_Numbers{
+    width: 1000px;
+    height: 75px;
+    border: 1cm;
+    border-radius: 10px;
+    background-color: #b6bfbc;
+    display: flex   ;
+    text-align: left;
+}
+
+.grid-operator{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+
+}
+
+div.Display_valus{
+    height: 60px;
+    background-color: #b6bfbc;
+    font-size: 50px;
+    text-align: right;
+    border: 0cm;
+    border-radius: 10px;
+
+}
+
+.oprerator{
+    font-size: 20px;
+}
+
+
+.grid-number{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+button {
+    font-family: "Silkscreen", sans-serif;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    color:  #03fc20;
+  }
+button:hover{
+    transition: 0.5s;
+    background-color: #b6bfbc;
+    cursor: pointer;
+}
+
+

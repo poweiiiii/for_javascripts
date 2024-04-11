@@ -25,15 +25,27 @@
 </head>
 <body>
     <script>
-        Push_room_to_array ();
-        Console_log_room ();
+        save_room_array.length = 0;
+
+
         var title = Create_Web_Title('Family Order !');
         document.body.appendChild(title);
         console.log(Code_name_array);
+
+
+    function Clear_Room (){
+        var clear = document.getElementById('clear_room_button')
+        clear.addEventListener('click' , function(){
+        save_room_array.splice(0, save_room_array.length);
+
+    })
+
+}
         </script>
     <button id = 'generate_code_button' class="Create_room_button" type="button" 
     style="border-radius:3%; width:150px; height: 50px;" onclick="Generate_code_room_Button()">Create a code!</button>
     <button class="Create_room_button" id = 'restrat_button' type="button" disabled = 'true' onclick="Regenerate_Button()">Regenerate!</button>
+    <button class="Create_room_button" id = 'clear_room_button' type="button" onclick="Clear_Room()">clear</button>
     <p id="Generate_Code" class="Code_name"></p>
 </body>
 </html>

@@ -15,8 +15,6 @@ function Display_code_name(){
         button.disabled = true;
 }
 
-
-
 function Reinput(){
     window.location.reload();
 
@@ -32,15 +30,8 @@ function Create_Web_Title(text){
 
 var Code_name = '';
 var Code_name_array = [];
-var Room_record_array = [];
+var save_room_array = JSON.parse(localStorage.getItem('data')) || [];
 
-function Push_room_to_array (){
-    Room_record_array.push(Code_name_array);
-}
-
-function Console_log_room (){
-    console.log(Room_record_array);
-}
 
 function Generate_code_room_Button(){
     var Button = document.getElementById('generate_code_button')
@@ -53,8 +44,8 @@ function Generate_code_room_Button(){
         //只會存到第一次創建 刪除不會跟著刪除
         Push_room_to_array ();
         }
-
-  Change_to_room();
+        Save_Room   ()
+        Change_to_room();
 
 }
 function Generate_room_code(){
@@ -91,6 +82,8 @@ function Regenerate_Button(){
     document.getElementById('Generate_Code').innerHTML += Code_name;
 }
 
+
+
 function Remove_Code_Array(){
     if (Code_name_array.length > 0) {
         Code_name_array.pop(); 
@@ -103,14 +96,22 @@ function Change_to_room(){
     Button.textContent = 'Create a room!';
 }
 
+//把創建的room存起來 有在資料裡面才可加入 沒有的話就不加入
+
+function Save_Room(){
+        save_room_array.push(Code_name_array);
+        sessionStorage.setItem('data', JSON.stringify(save_room_array));
+        console.log('Data saved:', save_room_array);
+    
+}
+
+
+
+
 //Room scripts
 //全域變數Current room people 
 var Current_room_people = 0 ; 
 function Display_How_Many_People(){ 
-
-}
-//把創建的room存起來 有在資料裡面才可加入 沒有的話就不加入
-function Room_record(){
 
 }
 
