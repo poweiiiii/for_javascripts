@@ -12,17 +12,25 @@ body {
 .Dispaly_Numbers{
     width: 1000px;
     height: 75px;
-    border: 1cm;
+    border: 1cm ;
     border-radius: 10px;
     background-color: #b6bfbc;
     display: flex   ;
     text-align: left;
+    
 }
 
 .grid-operator{
     display: grid;
-    grid-template-columns: repeat(6, 1fr); 
+    grid-template-columns: repeat(1, 1fr); 
 
+}
+
+
+div.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 div.Display_valus{
@@ -30,8 +38,9 @@ div.Display_valus{
     background-color: #b6bfbc;
     font-size: 50px;
     text-align: right;
-    border: 0cm;
+   border: 3px #03fc20;
     border-radius: 10px;
+    border-style: solid;
 
 }
 
@@ -42,7 +51,7 @@ div.Display_valus{
 
 .grid-number{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 10cm 10cm 10cm;
 }
 button {
     font-family: "Silkscreen", sans-serif;
@@ -56,7 +65,7 @@ button {
     color:  #03fc20;
   }
 button:hover{
-    transition: 0.5s;
+    transition: 1.0s;
     background-color: #b6bfbc;
     cursor: pointer;
 }
