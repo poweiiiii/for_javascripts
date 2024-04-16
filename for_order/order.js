@@ -10,7 +10,10 @@ ws.onopen = () => {
 }
 //接收 Server 發送的訊息
 ws.onmessage = event => {
-    console.log(event)
+    event.data.text().then(function(text){
+        console.log(text)
+
+    })
     
 }
 

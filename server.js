@@ -23,7 +23,7 @@ wss.on('connection', ws => {
 
         //做迴圈，發送訊息至每個 client
         clients.forEach(client => {
-            client.send(data)
+            client.send(data.toString())
         })
     })
 
