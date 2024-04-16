@@ -1,6 +1,7 @@
 //import express 和 ws 套件
 const express = require('express')
 const SocketServer = require('ws').Server
+const uuid = require('uuid').v4
 
 //指定開啟的 port
 const PORT = 5500
@@ -16,6 +17,8 @@ const wss = new SocketServer({ server })
 
 wss.on('connection', ws => {
     console.log('Client connected')
+    const uuid = uuidv4()
+    ws.uuid = uuid //判斷哪位用戶使用
 
     ws.on('message', data => {
         //取得所有連接中的 client

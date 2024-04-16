@@ -1,7 +1,13 @@
 //Websocket
+host = 'ws://localhost:5500'
 
 //使用 WebSocket 的網址向 Server 開啟連結
-let ws = new WebSocket('ws://localhost:5500')
+let ws = new WebSocket(host)
+
+//聊天室訊息欄位
+const uuidspan = document.querySelector('#uuid')
+const input = document.querySelector('#message')
+const sendbtn = document.querySelector('#sendbtn')
 
 
 //開啟後執行的動作，指定一個 function 會在連結 WebSocket 後執行
@@ -10,21 +16,28 @@ ws.onopen = () => {
 }
 //接收 Server 發送的訊息
 ws.onmessage = event => {
-    event.data.text().then(function(text){
-        console.log(text)
-
-    })
-    
+    console.log(event)
 }
+
+//聊天室 : 按下btn ,傳送input欄位資料
+sendbtn.addEventListener('click',() => {
+    const value = input.value
+    ws.send(JSON.stringify(
+        {
+            content : value
+        }
+    ))
+})
 
 //關閉後執行的動作，指定一個 function 會在連結中斷後執行
 ws.onclose = () => {
     console.log('close connection')
 }
 
-//接收 Server 發送的訊息
 
 //
+
+//使用socket 建立的房號會透過server 傳送到input_code網頁 左邊列表
 function Display_code_name(){
     Push_room_to_array ();
     var code_name = document.getElementById('code_name_input').value;
