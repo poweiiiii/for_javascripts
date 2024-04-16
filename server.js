@@ -17,18 +17,17 @@ const wss = new SocketServer({ server })
 wss.on('connection', ws => {
     console.log('Client connected')
 
-    //固定送最新時間給 Client
-    const sendNowTime = setInterval(()=>{
-        ws.send(String(new Date()))
-    },1000)
-
     ws.on('message', data => {
-        ws.send(data)
+        //取得所有連接中的 client
+        let clients = wss.clients
+
+        //做迴圈，發送訊息至每個 client
+        clients.forEach(client => {
+            client.send(data)
+        })
     })
 
     ws.on('close', () => {
-        //連線中斷時停止 setInterval
-        clearInterval(sendNowTime)
         console.log('Close connected')
     })
 })
