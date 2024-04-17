@@ -1,7 +1,8 @@
 //import express 和 ws 套件
+import { parse } from 'url';
 const express = require('express')
 const SocketServer = require('ws').Server
-const uuid = require('uuid').v4
+const uuidv4 = require('uuid').v4
 
 //指定開啟的 port
 const PORT = 5500
@@ -20,13 +21,22 @@ wss.on('connection', ws => {
     const uuid = uuidv4()
     ws.uuid = uuid //判斷哪位用戶使用
 
+    //表示用戶是誰
+    const user = {
+        context : 'user',
+        uuid 
+    }
+
+    ws.send(JSON.stringify(user))
+
+    //監聽
     ws.on('message', data => {
         //取得所有連接中的 client
         let clients = wss.clients
 
         //做迴圈，發送訊息至每個 client
         clients.forEach(client => {
-            client.send(data.toString())
+            client.send(user)
         })
     })
 
