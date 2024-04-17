@@ -15,12 +15,18 @@ ws.onopen = () => {
     console.log('open connection')
 }
 //接收 Server 發送的訊息
-ws.onmessage = ( event) => {
-    console.log(event)
-}
+ws.onmessage = (event) => {
+    if (typeof event.data === 'string') {
+        const data = JSON.parse(event.data);
+        console.log(data);
+        if (data.context === 'user') {
+            uuidspan.innerHTML = data.uuid;
+        }
+    }
+};
 
 //聊天室 : 按下btn ,傳送input欄位資料
-if(sendbtn != null){
+
 sendbtn.addEventListener('click',() => {
     const value = input.value
     ws.send(JSON.stringify(
@@ -28,10 +34,8 @@ sendbtn.addEventListener('click',() => {
             content : value
         }
     ))
-})}
-else {
-    window.alert('sendbtn not exist')
-}
+})
+
 
 //關閉後執行的動作，指定一個 function 會在連結中斷後執行
 ws.onclose = () => {
