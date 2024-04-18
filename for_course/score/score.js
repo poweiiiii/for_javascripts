@@ -1,10 +1,10 @@
-var input_score = document.getElementById('input_score')
+let input_score = document.getElementById('input_score')
 
 
 
 
 function Display_Score(){
-    var score = input_score.value;
+    let score = input_score.value;
     
     if (score <= 100 &&score >= 0){
         if(score > 90){
@@ -19,7 +19,6 @@ function Display_Score(){
  
     else{
         window.alert('請重新輸入')
-        location.reload();
 
     }
 }
