@@ -5,6 +5,8 @@ host = 'ws://localhost:5500'
 let ws = new WebSocket(host)
 
 //聊天室訊息欄位
+
+const msglist = document.querySelector('#msglist')
 const uuidspan = document.querySelector('#uuid')
 const input = document.querySelector('#message')
 const sendbtn = document.querySelector('#sendbtn')
@@ -15,12 +17,21 @@ ws.onopen = () => {
     console.log('open connection')
 }
 //接收 Server 發送的訊息
+const messages = []
 ws.onmessage = (event) => {
     if (typeof event.data === 'string') {
         const data = JSON.parse(event.data);
         console.log(data);
         if (data.context === 'user') {
             uuidspan.innerHTML = data.uuid;
+        }
+        //透過web server 把訊息傳至li
+        else if (data.context === 'message'){
+            messages.push(data)
+            const innermsg = messages.map((item) => {
+                return `<li>${item.content}</li>`
+            }).join('')
+            msglist.innerHTML = innermsg
         }
     }
 };
