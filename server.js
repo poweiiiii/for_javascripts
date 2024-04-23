@@ -1,6 +1,6 @@
 // Current Problems 
-// socketserver 也問題 ,可能須更改為websocket
-//client 端可傳出去 ， 但別的client 收不到
+// socketserver 也問題 ,可能須更改為websocket:solve
+//client 端可傳出去 ， 但別的client 收不到:solve
 
 
 //import express 和 ws 套件
