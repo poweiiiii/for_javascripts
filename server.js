@@ -22,7 +22,7 @@ const server = express()
 
 //將 express 交給 SocketServer 開啟 WebSocket 的服務
 
-const wss = new WebSocket.WebSocketServer({ server});
+const wss = new WebSocket.Server({ server});
 
 // const wss = new WebSocketServer({ port: 5500 });
 // const wss = new WebSocketServer({ port: 5500 });
